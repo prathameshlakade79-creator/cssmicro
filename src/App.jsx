@@ -1,4 +1,4 @@
-// React Notes App with iPhone-style glassmorphism UI
+// React Notes App with iPhone-style glassmorphism UI - Complete Project
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
