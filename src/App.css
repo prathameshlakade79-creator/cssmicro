@@ -1,0 +1,297 @@
+.App {
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9500 0%, #ff6b35 25%, #ff8c42 50%, #ffa500 75%, #ffb347 100%);
+  min-height: 100vh;
+  padding: 30px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated background particles */
+.App::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Main content wrapper */
+.App > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Headings */
+h1 {
+  margin-bottom: 30px;
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.2);
+  letter-spacing: -1px;
+  background: linear-gradient(45deg, #ffffff, #ffe4b5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  margin-top: 40px;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* iPhone-style glassmorphism input area */
+.input-area {
+  margin: 0 auto 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.15),
+    0 10px 20px rgba(0,0,0,0.1),
+    inset 0 1px 0 rgba(255,255,255,0.3),
+    inset 0 -1px 0 rgba(0,0,0,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.input-area::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* iPhone-style inputs */
+input,
+textarea {
+  padding: 16px 20px;
+  width: 90%;
+  margin: 12px 0;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 16px;
+  font-size: 1.1rem;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  box-shadow: 
+    inset 0 2px 4px rgba(0,0,0,0.1),
+    0 1px 0 rgba(255,255,255,0.3);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(0,0,0,0.4);
+  font-weight: 400;
+}
+
+input:focus,
+textarea:focus {
+  border-color: rgba(255, 149, 0, 0.6);
+  box-shadow: 
+    0 0 0 4px rgba(255, 149, 0, 0.2),
+    0 8px 24px rgba(255, 149, 0, 0.3),
+    inset 0 2px 4px rgba(0,0,0,0.1);
+  outline: none;
+  background: rgba(255,255,255,0.3);
+  transform: translateY(-2px);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* iPhone-style buttons */
+button {
+  padding: 16px 32px;
+  border: none;
+  cursor: pointer;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ff9500, #ff6b35);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 12px 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 8px 24px rgba(255, 149, 0, 0.3),
+    0 4px 12px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+  position: relative;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    0 12px 32px rgba(255, 149, 0, 0.4),
+    0 6px 16px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:active {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 
+    0 4px 16px rgba(255, 149, 0, 0.3),
+    0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Delete button styling */
+.deleteBtn {
+  background: linear-gradient(135deg, #ff3b30, #d70015);
+  box-shadow: 
+    0 8px 24px rgba(255, 59, 48, 0.3),
+    0 4px 12px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.deleteBtn:hover {
+  background: linear-gradient(135deg, #d70015, #b71c1c);
+  box-shadow: 
+    0 12px 32px rgba(255, 59, 48, 0.4),
+    0 6px 16px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+}
+
+/* Notes Table with glassmorphism */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 90%;
+  max-width: 1000px;
+  margin: 30px auto;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.15),
+    0 10px 20px rgba(0,0,0,0.1),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+th, td {
+  padding: 18px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+th {
+  background: rgba(255, 149, 0, 0.25);
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+tr:hover td {
+  color: white;
+}
+
+/* Table buttons */
+td button {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  margin: 0 4px;
+  min-width: 80px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .App {
+    padding: 20px 15px;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  .input-area {
+    width: 95%;
+    padding: 20px;
+  }
+  
+  input, textarea {
+    width: 95%;
+    padding: 14px 16px;
+    font-size: 1rem;
+  }
+  
+  table {
+    width: 95%;
+    font-size: 0.9rem;
+  }
+  
+  th, td {
+    padding: 12px 8px;
+  }
+  
+  td button {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    min-width: 60px;
+  }
+}
