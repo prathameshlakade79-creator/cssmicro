@@ -1,6 +1,6 @@
 # Notes App
 
-A simple React notes application that allows you to create, edit, delete, and manage notes with local storage persistence.
+A beautiful React notes application with iPhone-style glassmorphism UI in orange colors that allows you to create, edit, delete, and manage notes with local storage persistence.
 
 ## Features
 
